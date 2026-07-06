@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erik's — Local Business</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo">Erik's</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Welcome to Erik's</h1>
+      <p class="tagline">Friendly, reliable service you can count on — right in your neighbourhood.</p>
+      <a href="#contact" class="btn">Get in touch</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container two-col">
+      <div class="about-text">
+        <h2>About us</h2>
+        <p>We're a family-run business with years of experience serving the local community. Our team takes pride in doing things right the first time, and we treat every customer like a neighbour — because you are one.</p>
+        <p>Whether you're a first-time customer or a long-time friend, you'll always find a warm welcome here.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">Years in business</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Happy customers</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5★</span>
+          <span class="stat-label">Average rating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">What we offer</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🛠</div>
+          <h3>Service One</h3>
+          <p>A short description of this service and the value it brings to customers in the area.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Service Two</h3>
+          <p>Another great offering. Explain the benefit clearly so visitors know what to expect.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📦</div>
+          <h3>Service Three</h3>
+          <p>A third service. Keep descriptions brief and focused on what the customer gains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container contact-wrap">
+      <div class="contact-info">
+        <h2>Say hello</h2>
+        <p>Have a question or want to book something? Fill in the form and we'll get back to you as soon as we can — usually within one business day.</p>
+        <ul class="contact-details">
+          <li>📍 123 Main Street, Your Town</li>
+          <li>📞 <a href="tel:+10000000000">+1 (000) 000-0000</a></li>
+          <li>✉️ <a href="mailto:hello@eriks.example">hello@eriks.example</a></li>
+          <li>🕐 Mon–Fri: 9 am – 5 pm</li>
+        </ul>
+      </div>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Your name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          <span class="error-msg" id="name-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          <span class="error-msg" id="email-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (000) 000-0000" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message <span class="required">*</span></label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us what you need…" required></textarea>
+          <span class="error-msg" id="message-error"></span>
+        </div>
+        <button type="submit" class="btn btn-full">Send message</button>
+        <p class="form-success" id="form-success" hidden>Thanks! We'll be in touch soon.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Erik's. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
