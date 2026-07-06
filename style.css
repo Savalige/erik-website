@@ -2,16 +2,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream:    #fdf6ee;
-  --warm-bg:  #f5ede0;
-  --sand:     #e8d5be;
-  --terracotta: #c2714f;
-  --terra-dark: #a05c3b;
-  --brown:    #5c3d2e;
-  --text:     #3b2a1e;
-  --text-muted: #8a6a55;
+  --cream:    #f4f7fa;
+  --warm-bg:  #e8eef5;
+  --sand:     #cdd8e3;
+  --terracotta: #3a7ca5;
+  --terra-dark: #2c6285;
+  --brown:    #1b3a52;
+  --text:     #1e2d3d;
+  --text-muted: #5a7389;
   --radius:   10px;
-  --shadow:   0 2px 12px rgba(92, 61, 46, 0.10);
+  --shadow:   0 2px 12px rgba(27, 58, 82, 0.10);
 }
 
 html { scroll-behavior: smooth; }
@@ -72,7 +72,7 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
 
 /* ── Hero ───────────────────────────────────────── */
 .hero {
-  background: linear-gradient(135deg, #e8d2bc 0%, #f5e4d0 60%, #fdf0e4 100%);
+  background: linear-gradient(135deg, #c8daea 0%, #dce9f4 60%, #f0f6fb 100%);
   padding: 7rem 0 6rem;
   text-align: center;
 }
@@ -258,8 +258,8 @@ input.invalid, textarea.invalid {
 .form-success {
   margin-top: 1rem;
   padding: 0.75rem 1rem;
-  background: #d4edda;
-  color: #2d6a4f;
+  background: #d0e8f5;
+  color: #1b4f72;
   border-radius: var(--radius);
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.95rem;
