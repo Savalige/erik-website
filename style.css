@@ -2,28 +2,35 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream:    #f4f7fa;
-  --warm-bg:  #e8eef5;
-  --sand:     #cdd8e3;
-  --terracotta: #3a7ca5;
-  --terra-dark: #2c6285;
-  --brown:    #1b3a52;
-  --text:     #1e2d3d;
-  --text-muted: #5a7389;
-  --radius:   10px;
-  --shadow:   0 2px 12px rgba(27, 58, 82, 0.10);
+  --off-white:    #F8F6F2;
+  --surface:      #EEECEA;
+  --surface-dim:  #E4E4E4;
+  --light-blue:   #C8DDED;
+  --primary:      #2563EB;
+  --primary-dark: #1D4ED8;
+  --border:       #DBDBDB;
+  --border-dark:  #2a2a2a;
+  --ink:          #101010;
+  --navy:         #34354B;
+  --text:         #111111;
+  --text-muted:   #707070;
+  --text-subtle:  #919191;
+  --white:        #ffffff;
+  --error:        #c0392b;
+  --radius:       10px;
+  --shadow:       0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Georgia', 'Times New Roman', serif;
-  background: var(--cream);
+  background: var(--off-white);
   color: var(--text);
   line-height: 1.7;
 }
 
-a { color: var(--terracotta); text-decoration: none; }
+a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* ── Layout ─────────────────────────────────────── */
@@ -34,16 +41,16 @@ a:hover { text-decoration: underline; }
 }
 
 .section { padding: 5rem 0; }
-.section-alt { background: var(--warm-bg); }
+.section-alt { background: var(--light-blue); }
 
 /* ── Header / Nav ───────────────────────────────── */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--cream);
-  border-bottom: 1px solid var(--sand);
-  padding: 1rem 0;
+  background: var(--ink);
+  border-bottom: 1px solid var(--border-dark);
+  overflow: clip;
 }
 
 .site-header .container {
@@ -52,41 +59,52 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
 }
 
-.logo {
+#header-logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color: var(--brown);
+  color: var(--off-white);
   letter-spacing: 0.02em;
+  background: var(--primary);
+  margin-left: min(-1.5rem, calc(-50vw + 540px - 1.5rem));
+  padding-left: max(1.5rem, calc(50vw - 540px + 1.5rem));
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2.5rem;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 1.75rem) 100%, 0 100%);
 }
 
-nav { display: flex; gap: 2rem; }
+nav { 
+  display: flex;
+  gap: 2rem; 
+  padding: 1rem 0;
+}
 
 nav a {
-  color: var(--text-muted);
+  color: var(--off-white);
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.95rem;
   transition: color 0.2s;
 }
 
-nav a:hover { color: var(--terracotta); text-decoration: none; }
+nav a:hover { color: var(--primary); text-decoration: none; }
 
 /* ── Hero ───────────────────────────────────────── */
 .hero {
-  background: linear-gradient(135deg, #c8daea 0%, #dce9f4 60%, #f0f6fb 100%);
+  background: var(--ink);
   padding: 7rem 0 6rem;
   text-align: center;
 }
 
 .hero h1 {
   font-size: clamp(2.2rem, 5vw, 3.6rem);
-  color: var(--brown);
+  color: var(--off-white);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .tagline {
   font-size: 1.2rem;
-  color: var(--text-muted);
+  color: var(--text-subtle);
   max-width: 520px;
   margin: 0 auto 2.5rem;
 }
@@ -94,8 +112,8 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
 /* ── Buttons ─────────────────────────────────────── */
 .btn {
   display: inline-block;
-  background: var(--terracotta);
-  color: #fff;
+  background: var(--primary);
+  color: var(--white);
   padding: 0.75rem 2rem;
   border-radius: var(--radius);
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -105,7 +123,7 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
   transition: background 0.2s, transform 0.15s;
 }
 
-.btn:hover { background: var(--terra-dark); text-decoration: none; transform: translateY(-1px); }
+.btn:hover { background: var(--primary-dark); text-decoration: none; transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 .btn-full { width: 100%; text-align: center; }
 
@@ -117,7 +135,7 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
   align-items: center;
 }
 
-.about-text h2 { font-size: 2rem; color: var(--brown); margin-bottom: 1rem; }
+.about-text h2 { font-size: 2rem; color: var(--text); margin-bottom: 1rem; }
 .about-text p { color: var(--text-muted); margin-bottom: 1rem; }
 
 .about-stats {
@@ -127,8 +145,8 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
 }
 
 .stat {
-  background: var(--warm-bg);
-  border-left: 4px solid var(--terracotta);
+  background: var(--light-blue);
+  border-left: 4px solid var(--primary);
   padding: 1rem 1.25rem;
   border-radius: 0 var(--radius) var(--radius) 0;
 }
@@ -137,7 +155,7 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
   display: block;
   font-size: 2rem;
   font-weight: bold;
-  color: var(--terracotta);
+  color: var(--primary);
   line-height: 1;
 }
 
@@ -150,7 +168,7 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
 /* ── Services ────────────────────────────────────── */
 .section-title {
   font-size: 2rem;
-  color: var(--brown);
+  color: var(--text);
   text-align: center;
   margin-bottom: 3rem;
 }
@@ -162,7 +180,7 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
 }
 
 .service-card {
-  background: var(--cream);
+  background: var(--off-white);
   border-radius: var(--radius);
   padding: 2rem 1.5rem;
   box-shadow: var(--shadow);
@@ -171,11 +189,11 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
 
 .service-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(92, 61, 46, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .service-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-.service-card h3 { color: var(--brown); margin-bottom: 0.5rem; }
+.service-card h3 { color: var(--text); margin-bottom: 0.5rem; }
 .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
 /* ── Contact ─────────────────────────────────────── */
@@ -186,7 +204,7 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
   align-items: start;
 }
 
-.contact-info h2 { font-size: 2rem; color: var(--brown); margin-bottom: 1rem; }
+.contact-info h2 { font-size: 2rem; color: var(--text); margin-bottom: 1rem; }
 .contact-info > p { color: var(--text-muted); margin-bottom: 1.5rem; }
 
 .contact-details {
@@ -199,11 +217,11 @@ nav a:hover { color: var(--terracotta); text-decoration: none; }
   color: var(--text-muted);
 }
 
-.contact-details a { color: var(--terracotta); }
+.contact-details a { color: var(--primary); }
 
 /* ── Form ────────────────────────────────────────── */
 .contact-form {
-  background: var(--warm-bg);
+  background: var(--surface);
   padding: 2.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -220,17 +238,17 @@ label {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--brown);
+  color: var(--text);
 }
 
-.required { color: var(--terracotta); }
+.required { color: var(--primary); }
 
 input, textarea {
   width: 100%;
   padding: 0.65rem 0.9rem;
-  border: 1.5px solid var(--sand);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  background: var(--cream);
+  background: var(--off-white);
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.95rem;
   color: var(--text);
@@ -240,26 +258,26 @@ input, textarea {
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: var(--terracotta);
-  box-shadow: 0 0 0 3px rgba(194, 113, 79, 0.15);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 input.invalid, textarea.invalid {
-  border-color: #c0392b;
+  border-color: var(--error);
 }
 
 .error-msg {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.8rem;
-  color: #c0392b;
+  color: var(--error);
   min-height: 1em;
 }
 
 .form-success {
   margin-top: 1rem;
   padding: 0.75rem 1rem;
-  background: #d0e8f5;
-  color: #1b4f72;
+  background: var(--surface-dim);
+  color: var(--text);
   border-radius: var(--radius);
   font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.95rem;
@@ -268,8 +286,8 @@ input.invalid, textarea.invalid {
 
 /* ── Footer ─────────────────────────────────────── */
 .site-footer {
-  background: var(--brown);
-  color: rgba(255,255,255,0.6);
+  background: var(--ink);
+  color: var(--text-subtle);
   text-align: center;
   padding: 2rem 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
