@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Erik's — Lokal verksamhet</title>
+  <title>Eriks Plåttakservice — Takläggning i Sverige</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Cloudflare Turnstile — replace data-sitekey with your key from dash.cloudflare.com -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
   <!-- Nav -->
   <header class="site-header">
     <div class="container">
-      <a href="#" id="header-logo">Erik's</a>
+      <a href="#" id="header-logo">Eriks Plåttakservice</a>
       <nav>
         <a href="#about">Om oss</a>
         <a href="#services">Tjänster</a>
@@ -23,8 +25,8 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Välkommen till Erik's</h1>
-      <p class="tagline">Vänlig och pålitlig service du kan lita på — precis i ditt närområde.</p>
+      <h1>Eriks Plåttakservice</h1>
+      <p class="tagline">Professionell takläggning och plåtarbeten — hållbara tak som håller i decennier.</p>
       <a href="#contact" class="btn">Kontakta oss</a>
     </div>
   </section>
@@ -34,8 +36,8 @@
     <div class="container two-col">
       <div class="about-text">
         <h2>Om oss</h2>
-        <p>Vi är ett familjeföretag med lång erfarenhet av att betjäna lokalsamhället. Vårt team är stolta över att göra rätt från början, och vi behandlar varje kund som en granne — för det är du.</p>
-        <p>Oavsett om du är ny kund eller gammal vän är du alltid välkommen hit.</p>
+        <p>Vi är ett familjeägt plåtslagerier med lång erfarenhet av tak i alla former och material. Vi lägger plåttak på villor, lantbruksbyggnader och kommersiella fastigheter med samma omsorg — och alltid med garanterat hantverk.</p>
+        <p>Oavsett om det handlar om ett nytt tak, en reparation eller löpande underhåll ger vi alltid en ärlig offert utan dolda avgifter.</p>
       </div>
       <div class="about-stats">
         <div class="stat">
@@ -60,19 +62,19 @@
       <h2 class="section-title">Vad vi erbjuder</h2>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">🛠</div>
-          <h3>Tjänst ett</h3>
-          <p>En kort beskrivning av denna tjänst och vilket värde den ger kunder i området.</p>
+          <div class="service-icon">🏠</div>
+          <h3>Plåttak &amp; Takläggning</h3>
+          <p>Nyläggning av plåttak på villor och fastigheter. Vi arbetar med stål, zink och koppar och anpassar lösningen efter husets karaktär och din budget.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">✨</div>
-          <h3>Tjänst två</h3>
-          <p>Ytterligare ett bra erbjudande. Förklara fördelen tydligt så besökare vet vad de kan förvänta sig.</p>
+          <div class="service-icon">🔧</div>
+          <h3>Reparation &amp; Underhåll</h3>
+          <p>Läckage, skadade plåtar eller rostangrepp? Vi identifierar problemet och åtgärdar det rätt — utan att ta mer av taket än nödvändigt.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">📦</div>
-          <h3>Tjänst tre</h3>
-          <p>En tredje tjänst. Håll beskrivningarna korta och fokuserade på vad kunden vinner.</p>
+          <div class="service-icon">🌧️</div>
+          <h3>Hängrännor &amp; Avvattning</h3>
+          <p>Rätt avvattning skyddar både tak och grund. Vi monterar och byter hängrännor, stuprör och plåtbeslag som håller länge även i hårt klimat.</p>
         </div>
       </div>
     </div>
@@ -85,10 +87,10 @@
         <h2>Säg hej</h2>
         <p>Har du en fråga eller vill boka något? Fyll i formuläret så återkommer vi så snart vi kan — vanligtvis inom en arbetsdag.</p>
         <ul class="contact-details">
-          <li>📍 Storgatan 1, Din stad</li>
-          <li>📞 <a href="tel:+10000000000">+46 (0) 00-000 000</a></li>
-          <li>✉️ <a href="mailto:hello@eriks.example">hello@eriks.example</a></li>
-          <li>🕐 Mån–fre: 9.00 – 17.00</li>
+          <li>📍 Industrivägen 4, 123 45 Exempelstad</li>
+          <li>📞 <a href="tel:+46700000000">+46 (0) 70-000 00 00</a></li>
+          <li>✉️ <a href="mailto:info@erikspllattakservice.se">info@eriksplattakservice.se</a></li>
+          <li>🕐 Mån–fre: 7.00 – 16.00</li>
         </ul>
       </div>
 
@@ -112,8 +114,11 @@
           <textarea id="message" name="message" rows="5" placeholder="Berätta vad du behöver hjälp med…" required></textarea>
           <span class="error-msg" id="message-error"></span>
         </div>
-        <button type="submit" class="btn btn-full">Skicka meddelande</button>
-        <p class="form-success" id="form-success" hidden>Tack! Vi hör av oss snart.</p>
+        <!-- Cloudflare Turnstile widget — replace data-sitekey with your actual key -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA_YOUR_SITE_KEY" data-theme="light"></div>
+        <button type="submit" class="btn btn-full" id="submit-btn">Skicka meddelande</button>
+        <p class="form-status" id="form-success" hidden>Tack! Vi hör av oss inom en arbetsdag.</p>
+        <p class="form-status form-error" id="form-error" hidden>Något gick fel. Försök igen eller kontakta oss via telefon.</p>
       </form>
     </div>
   </section>
@@ -121,7 +126,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 Erik's. Alla rättigheter förbehållna.</p>
+      <p>&copy; 2026 Eriks Plåttakservice. Alla rättigheter förbehållna.</p>
     </div>
   </footer>
 

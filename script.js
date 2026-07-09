@@ -1,5 +1,10 @@
+// Replace YOUR_FORM_ID with your Formspree form ID from formspree.io/forms
+const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
+
 const form = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
 const successMsg = document.getElementById('form-success');
+const errorMsg = document.getElementById('form-error');
 
 function setError(fieldId, msg) {
   const field = document.getElementById(fieldId);
@@ -13,7 +18,7 @@ function validate() {
 
   const name = document.getElementById('name').value.trim();
   if (!name) {
-    setError('name', 'Please enter your name.');
+    setError('name', 'Ange ditt namn.');
     ok = false;
   } else {
     setError('name', '');
@@ -22,10 +27,10 @@ function validate() {
   const email = document.getElementById('email').value.trim();
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email) {
-    setError('email', 'Please enter your email address.');
+    setError('email', 'Ange din e-postadress.');
     ok = false;
   } else if (!emailRe.test(email)) {
-    setError('email', 'Please enter a valid email address.');
+    setError('email', 'Ange en giltig e-postadress.');
     ok = false;
   } else {
     setError('email', '');
@@ -33,7 +38,7 @@ function validate() {
 
   const message = document.getElementById('message').value.trim();
   if (!message) {
-    setError('message', 'Please enter a message.');
+    setError('message', 'Ange ett meddelande.');
     ok = false;
   } else {
     setError('message', '');
@@ -42,21 +47,40 @@ function validate() {
   return ok;
 }
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', async function (e) {
   e.preventDefault();
   successMsg.hidden = true;
+  errorMsg.hidden = true;
 
   if (!validate()) return;
 
-  // TODO: replace with a real form endpoint (e.g. Formspree, Netlify Forms)
-  // fetch('https://formspree.io/f/YOUR_ID', { method: 'POST', body: new FormData(form) })
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Skickar…';
 
-  form.reset();
-  successMsg.hidden = false;
-  successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  try {
+    const res = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form),
+    });
+
+    if (res.ok) {
+      form.reset();
+      successMsg.hidden = false;
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      errorMsg.hidden = false;
+      errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  } catch {
+    errorMsg.hidden = false;
+    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Skicka meddelande';
+  }
 });
 
-// Clear errors on input
 ['name', 'email', 'message'].forEach(function (id) {
   document.getElementById(id).addEventListener('input', function () {
     setError(id, '');
