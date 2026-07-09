@@ -127,6 +127,20 @@ nav a:hover { color: var(--primary); text-decoration: none; }
 .btn:active { transform: translateY(0); }
 .btn-full { width: 100%; text-align: center; }
 
+/* ── Foreground corner ───────────────────────────── */
+.hero { position: relative; overflow: hidden; }
+
+.foreground {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 320px;
+  height: 320px;
+  background: rgba(37, 99, 235, 0.18);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+
 /* ── About ───────────────────────────────────────── */
 .two-col {
   display: grid;
