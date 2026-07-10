@@ -61,17 +61,21 @@ a:hover { text-decoration: underline; }
 }
 
 #header-logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--off-white);
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
   background: var(--primary);
   margin-left: min(-1.5rem, calc(-50vw + 540px - 1.5rem));
   padding-left: max(1.5rem, calc(50vw - 540px + 1.5rem));
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   padding-right: 2.5rem;
   clip-path: polygon(0 0, 100% 0, calc(100% - 1.75rem) 100%, 0 100%);
+}
+
+#header-logo img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
 }
 
 nav { 
@@ -97,10 +101,15 @@ nav a:hover { color: var(--blue); text-decoration: none; }
 }
 
 .hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-  color: var(--off-white);
   margin-bottom: 1rem;
-  line-height: 1.2;
+  line-height: 1;
+}
+
+.hero-logo {
+  height: clamp(3rem, 8vw, 5.5rem);
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .tagline {
