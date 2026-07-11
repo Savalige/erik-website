@@ -41,7 +41,7 @@ a:hover { text-decoration: underline; }
   padding: 0 1.5rem;
 }
 
-.section { padding: 5rem 0; }
+.section { padding: 5rem 0 0 0; }
 .section-alt { background: var(--light-gray); }
 
 /* ── Header / Nav ───────────────────────────────── */
@@ -95,7 +95,7 @@ nav a:hover { color: var(--text-subtle); text-decoration: none; }
 
 /* ── Hero ───────────────────────────────────────── */
 .hero {
-  background: var(--ink);
+  background: var(--ink) url('assets/2.jpeg') center/cover no-repeat;
   padding: 7rem 0 6rem;
   text-align: center;
 }
@@ -114,7 +114,7 @@ nav a:hover { color: var(--text-subtle); text-decoration: none; }
 
 .tagline {
   font-size: 1.2rem;
-  color: var(--text-subtle);
+  color: var(--white);
   max-width: 520px;
   margin: 0 auto 2.5rem;
 }
@@ -161,6 +161,20 @@ nav a:hover { color: var(--text-subtle); text-decoration: none; }
 
 .about-text h2 { font-size: 2rem; color: var(--text); margin-bottom: 1rem; }
 .about-text p { color: var(--text-muted); margin-bottom: 1rem; }
+
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.about-images img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
 
 .about-stats {
   display: flex;
@@ -317,6 +331,36 @@ input.invalid, textarea.invalid {
   margin-bottom: 1.25rem;
 }
 
+/* ── Lightbox ────────────────────────────────────── */
+.lightbox-trigger {
+  cursor: zoom-in;
+}
+
+#lightbox {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+#lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+
+#lightbox-img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
 /* ── Footer ─────────────────────────────────────── */
 .site-footer {
   background: var(--ink);
@@ -331,6 +375,8 @@ input.invalid, textarea.invalid {
 @media (max-width: 768px) {
   .two-col,
   .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .about-images img { height: 280px; }
 
   .services-grid { grid-template-columns: 1fr; }
 

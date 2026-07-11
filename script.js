@@ -86,3 +86,18 @@ form.addEventListener('submit', async function (e) {
     setError(id, '');
   });
 });
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.lightbox-trigger').forEach(function (img) {
+  img.addEventListener('click', function () {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.showModal();
+  });
+});
+
+lightbox.addEventListener('click', function () {
+  lightbox.close();
+});
