@@ -338,6 +338,22 @@ input.invalid, textarea.invalid {
 }
 
 @media (max-width: 480px) {
-  .site-header .container { flex-direction: column; gap: 0.75rem; }
+  .site-header .container { flex-direction: column; gap: 0.1rem; }
   .hero { padding: 5rem 0 4rem; }
+
+  #header-logo {
+    background: none;
+    clip-path: none;
+    margin-left: 0;
+    padding: 0.25rem 0;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #header-logo img {
+    height: 3.5rem;
+    width: auto;
+  }
+
+  nav { padding: 0.25rem 0; gap: 1.25rem; }
 }
