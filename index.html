@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inlandets Byggplåt — Takläggning i Sverige</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Cloudflare Turnstile — replace data-sitekey with your key from dash.cloudflare.com -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -88,7 +86,8 @@
         </ul>
       </div>
 
-      <form id="contact-form" class="contact-form" novalidate>
+      <form id="contact-form" class="contact-form" name="contact" data-netlify="true" novalidate>
+        <input type="hidden" name="form-name" value="contact" />
         <div class="form-group">
           <label for="name">Ditt namn <span class="required">*</span></label>
           <input type="text" id="name" name="name" placeholder="Anna Svensson" required />
@@ -108,8 +107,6 @@
           <textarea id="message" name="message" rows="5" placeholder="Berätta vad du behöver hjälp med…" required></textarea>
           <span class="error-msg" id="message-error"></span>
         </div>
-        <!-- Cloudflare Turnstile widget — replace data-sitekey with your actual key -->
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA_YOUR_SITE_KEY" data-theme="light"></div>
         <button type="submit" class="btn btn-full" id="submit-btn">Skicka meddelande</button>
         <p class="form-status" id="form-success" hidden>Tack! Vi hör av oss inom en arbetsdag.</p>
         <p class="form-status form-error" id="form-error" hidden>Något gick fel. Försök igen eller kontakta oss via telefon.</p>

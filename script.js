@@ -1,6 +1,3 @@
-// Replace YOUR_FORM_ID with your Formspree form ID from formspree.io/forms
-const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
-
 const form = document.getElementById('contact-form');
 const submitBtn = document.getElementById('submit-btn');
 const successMsg = document.getElementById('form-success');
@@ -58,10 +55,10 @@ form.addEventListener('submit', async function (e) {
   submitBtn.textContent = 'Skickar…';
 
   try {
-    const res = await fetch(FORMSPREE_URL, {
+    const res = await fetch('/', {
       method: 'POST',
-      headers: { Accept: 'application/json' },
-      body: new FormData(form),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString(),
     });
 
     if (res.ok) {
